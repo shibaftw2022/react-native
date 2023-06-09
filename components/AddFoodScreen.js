@@ -21,31 +21,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-function Section({children, title}) {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+
 
 function AddFoodScreen() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -57,21 +33,41 @@ function AddFoodScreen() {
   const [text, onChangeText] = React.useState('');
   const placeHolderText = ('Enter New Food.');
   return (
-  
-        <View style={{
-            flexDirection:"row",
-            flex: 1, alignItems: 'center', justifyContent: 'center'
-          }}>
-          
+    <View style={{
+       alignItems: 'center', justifyContent: 'center',
+       borderColor:'red',borderBottomWidth:1,borderTopWidth:1,
+       flex: 2
+
+    }}>
+          <View style={{
+       alignItems: 'center', justifyContent: 'center',
+       borderColor:'red',borderBottomWidth:1,borderTopWidth:1,
+       flex: 2,  
+
+    }}>
           <TextInput
-        style={styles.input}
         onChangeText={onChangeText}
         placeholder= {placeHolderText}
         backgroundColor = '#ffffff'
         value = {text}
 
       />
+      </View>
+
+      <View>
+          
+          <Button
+            title="Add New Food Choice"
+            onPress={() => navigation.push('AddFoodScreen')}
+          />
         </View>
+
+
+
+        </View>
+
+
+        
 
         
   
